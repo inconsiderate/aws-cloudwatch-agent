@@ -1,0 +1,3 @@
+---
+- name: start cloudwatch logs
+  service: name=awslogs state=started

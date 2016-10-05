@@ -1,0 +1,15 @@
+---
+- name: Download CloudWatch logs agent installer
+  get_url:
+    dest: /tmp/awslogs-agent-setup.py
+    group: root
+    owner: root
+    mode: 0600
+    url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
+
+- name: Copy cloudwatch config
+  template: src=awsconfig.conf.j2 dest=/tmp/awsconfig.conf owner=root group=root mode=0644
+
+- name: Install CloudWatch logs agent
+  command: sudo python ./awslogs-agent-setup.py --region=us-west-2 --non-interactive --configfile=/tmp/awsconfig.conf
+  notify: start cloudwatch logs
