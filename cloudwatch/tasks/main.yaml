@@ -4,7 +4,7 @@
     dest: /tmp/awslogs-agent-setup.py
     group: root
     owner: root
-    mode: 0600
+    mode: 0644
     url: https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py
 
 - name: Copy cloudwatch config
