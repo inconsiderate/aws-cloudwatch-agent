@@ -11,5 +11,5 @@
   template: src=awsconfig.conf.j2 dest=/tmp/awsconfig.conf owner=root group=root mode=0644
 
 - name: Install CloudWatch logs agent
-  command: sudo python ./awslogs-agent-setup.py --region=us-west-2 --non-interactive --configfile=/tmp/awsconfig.conf
+  command: sudo python /tmp/awslogs-agent-setup.py --region=us-west-2 --non-interactive --configfile=/tmp/awsconfig.conf
   notify: start cloudwatch logs
